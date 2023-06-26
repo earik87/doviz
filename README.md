@@ -14,4 +14,4 @@ This CLI tool gives you the current USD/TRY parity from the terminal. It fetches
 
 Type `doviz` in your terminal. It will prompt the current USD/TRY parity.
 
-![Usage-doviz](https://github.com/earik87/doviz/doviz-usage.gif)
+![Usage-doviz](./doviz-usage.gif)
