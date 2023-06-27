@@ -8,7 +8,7 @@ import (
 func scrape() {
     c := colly.NewCollector()
 
-	c.OnHTML("div.text-xl.font-semibold.text-white", func(e *colly.HTMLElement) {
+    c.OnHTML("div.text-xl.font-semibold.text-white", func(e *colly.HTMLElement) {
 		fmt.Println("Dolar/TRY Paritesi:", e.Text)
 	})
 
