@@ -1,3 +1,5 @@
+[![Go](https://github.com/earik87/doviz/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/earik87/doviz/actions/workflows/go.yml)
+
 # doviz
 
 This CLI tool gives you the current USD/TRY parity from the terminal. It fetches the parity from doviz.com. 
