@@ -1,20 +1,22 @@
 package main
 
 import (
-    "fmt"
-    "github.com/gocolly/colly"
+	"fmt"
+
+	"github.com/gocolly/colly"
 )
 
 func scrape() {
-    c := colly.NewCollector()
+	c := colly.NewCollector()
 
-    c.OnHTML("div.text-xl.font-semibold.text-white", func(e *colly.HTMLElement) {
-	    fmt.Println("Dolar/TRY Paritesi:", e.Text)
+	c.OnHTML("div.text-xl.font-semibold.text-white", func(e *colly.HTMLElement) {
+		dolarUsdParite := e.Text
+		fmt.Println(dolarUsdParite)
 	})
 
-    c.Visit("https://kur.doviz.com/serbest-piyasa/amerikan-dolari")
+	c.Visit("https://kur.doviz.com/serbest-piyasa/amerikan-dolari")
 }
 
 func main() {
-    scrape()
+	scrape()
 }
