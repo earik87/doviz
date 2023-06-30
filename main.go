@@ -11,7 +11,7 @@ func scrape() {
 
 	c.OnHTML("div.text-xl.font-semibold.text-white", func(e *colly.HTMLElement) {
 		dolarUsdParite := e.Text
-		fmt.Println(dolarUsdParite)
+		fmt.Println("USD/TRY paritesi:", dolarUsdParite)
 	})
 
 	c.Visit("https://kur.doviz.com/serbest-piyasa/amerikan-dolari")
