@@ -6,7 +6,7 @@ import (
 	"github.com/gocolly/colly"
 )
 
-func scrape() {
+func getUsdTryParity() {
 	c := colly.NewCollector()
 
 	c.OnHTML("div.text-xl.font-semibold.text-white", func(e *colly.HTMLElement) {
@@ -18,5 +18,5 @@ func scrape() {
 }
 
 func main() {
-	scrape()
+	getUsdTryParity()
 }
