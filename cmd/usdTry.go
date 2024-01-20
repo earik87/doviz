@@ -1,40 +1,41 @@
-/*
-Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
-*/
 package cmd
 
 import (
 	"fmt"
+	"strconv"
+
+	"doviz/internal"
 
 	"github.com/spf13/cobra"
 )
 
-// usdTryCmd represents the usdTry command
-var usdTryCmd = &cobra.Command{
-	Use:   "usdTry",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+func calculateUsdTry(usd float64) float64 {
+	usdTryParity := internal.GetUsdTryParity()
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	return usd * usdTryParity
+}
+
+var usdTryCmd = &cobra.Command{
+	Use:   "usd-try",
+	Short: "USD degerini TRY cinsinden gosterir",
+	Args:  cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("usdTry called")
+		if len(args) > 0 {
+			value, err := strconv.ParseFloat(args[0], 64)
+			if err != nil {
+				fmt.Println("Yanlis arguman, lutfen bir sayi giriniz.")
+				return
+			}
+
+			usdTry := fmt.Sprintf("%.2f", calculateUsdTry(value))
+			fmt.Println(usdTry)
+		} else {
+			fmt.Println("")
+		}
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(usdTryCmd)
 
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// usdTryCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// usdTryCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
