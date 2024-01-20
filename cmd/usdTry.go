@@ -6,6 +6,7 @@ import (
 
 	"doviz/internal"
 
+	"github.com/leekchan/accounting"
 	"github.com/spf13/cobra"
 )
 
@@ -27,8 +28,8 @@ var usdTryCmd = &cobra.Command{
 				return
 			}
 
-			usdTry := fmt.Sprintf("%.2f", calculateUsdTry(value))
-			fmt.Println(usdTry)
+			ac := accounting.Accounting{Symbol: "₺", Precision: 2, Thousand: ",", Decimal: "."}
+			fmt.Println(ac.FormatMoney(calculateUsdTry(value)))
 		} else {
 			fmt.Println("")
 		}
@@ -37,5 +38,4 @@ var usdTryCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(usdTryCmd)
-
 }

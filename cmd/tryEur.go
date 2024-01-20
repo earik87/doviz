@@ -6,6 +6,7 @@ import (
 
 	"doviz/internal"
 
+	"github.com/leekchan/accounting"
 	"github.com/spf13/cobra"
 )
 
@@ -27,8 +28,8 @@ var tryEurCmd = &cobra.Command{
 				return
 			}
 
-			eurTry := fmt.Sprintf("%.2f", calculateTryEur(value))
-			fmt.Println(eurTry)
+			ac := accounting.Accounting{Symbol: "€", Precision: 2, Thousand: ",", Decimal: "."}
+			fmt.Println(ac.FormatMoney(calculateTryEur(value)))
 		} else {
 			fmt.Println("")
 		}

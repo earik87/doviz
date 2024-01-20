@@ -12,8 +12,26 @@ This CLI tool gives you the current USD/TRY parity from the terminal. It fetches
 
 `go install`
 
+`go build`
+
 ## Usage
 
-Type `doviz` in your terminal. It will prompt the current USD/TRY parity.
+Type `./doviz` in your terminal for help.
 
-![Usage-doviz](./doviz-usage.gif)
+## Example
+
+```bash
+$ ./doviz usd-try 2570.40
+₺77,627.37
+```
+
+```bash
+$ ./doviz try-eur 49000
+€1,487.77
+```
+
+
+## Things to do
+
+- [ ] Add more currencies
+- [ ] Add a flag to show historical data
